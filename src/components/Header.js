@@ -1,12 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as icon from "@mui/icons-material";
 
 function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
+useEffect(()=>{
+   closeMenu()
+},[])
+
+const closeMenu=()=>{
+    document.addEventListener('mouseup'
+    ,function(e) {
+        var container = document.getElementById('menu');
+        if (!container.contains(e.target)) {
+            setShowMenu(false)
+        }
+    });
+}
+
   const accountMenu = () => {
     return (
-      <div className="header__right__account-menu">
+      <div className="header__right__account-menu" >
         {showMenu && (
           <ul>
             <li>Sign up</li>
@@ -30,7 +44,7 @@ function Header() {
         <p style={{ fontWeight: 500 }}>Become a host</p>
         <icon.Language style={{ fontSize: "20px" }} />
         <div
-          className="header__right__menu"
+          className="header__right__menu" id='menu'
           onClick={() => {
             setShowMenu(!showMenu);
           }}
