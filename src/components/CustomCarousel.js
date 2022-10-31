@@ -5,19 +5,20 @@ import Card from "./Card";
 import { useMediaQuery } from "react-responsive";
 
 function CustomCarousel({ data, title, carousel }) {
-
   const isTabletOrMobile = useMediaQuery({ query: " (max-width: 992px)" });
 
-  const myArrowBanner = ({ type, onClick, isEdge }) => {
+  const arrowStyle = {
+    fontSize: "12px",
+    color: "gray",
+    marginBottom: "5px",
+  };
+
+  const arrows = ({ type, onClick, isEdge }) => {
     const pointer =
       type === consts.PREV ? (
-        <icon.ArrowBackIos
-          style={{ fontSize: "12px", color: "gray", marginBottom: "5px" }}
-        />
+        <icon.ArrowBackIos style={arrowStyle} />
       ) : (
-        <icon.ArrowForwardIos
-          style={{ fontSize: "12px", color: "gray", marginBottom: "5px" }}
-        />
+        <icon.ArrowForwardIos style={arrowStyle} />
       );
     return (
       <div
@@ -63,7 +64,7 @@ function CustomCarousel({ data, title, carousel }) {
       <Carousel
         itemPosition={consts.START}
         autoPlaySpeed={1500}
-        renderArrow={myArrowBanner}
+        renderArrow={arrows}
         outerSpacing={data.length <= 3 ? (isTabletOrMobile ? 10 : 100) : -10}
         itemsToShow={
           data.length > 3
