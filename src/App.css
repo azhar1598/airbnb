@@ -128,7 +128,7 @@ li:nth-of-type(1) {
 
 
 .topSellers-img {
-  height: 40vh;
+  height: 35vh;
   width: 13vw;
   border-radius: 27px;
   margin-top: 60px;
@@ -208,8 +208,8 @@ li:nth-of-type(1) {
 
 
   .topSellers-img {
-    height: 40vh;
-    width: 40vw;
+    height: 30vh;
+    width: 45vw;
     /* object-fit: contain; */
     border-radius: 27px;
     margin-top: 60px;
